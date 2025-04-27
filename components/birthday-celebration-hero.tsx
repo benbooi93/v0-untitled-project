@@ -14,11 +14,11 @@ export default function BirthdayCelebrationHero() {
       <div className="relative h-[85vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60 z-10" />
         <img
-          src="/images/destinations/banff-mountains.png"
+          src="/images/destinations/banff-lake-louise.png"
           alt={
             language === "en"
-              ? "Scenic mountains in Banff National Park"
-              : "Montañas panorámicas en el Parque Nacional Banff"
+              ? "Scenic view of Lake Louise in Banff National Park"
+              : "Vista panorámica del Lago Louise en el Parque Nacional Banff"
           }
           className="h-full w-full object-cover"
         />
