@@ -1,4 +1,5 @@
 "use client"
+
 import { cn } from "@/lib/utils"
 import { tripData } from "@/lib/trip-data"
 import { hikesData } from "@/lib/hikes-data"
@@ -34,6 +35,10 @@ export default function InteractiveMap({ activeDay, className }: InteractiveMapP
     }
   }
 
+  const handleImageError = (event) => {
+    event.currentTarget.src = "/images/destinations/mountain-valley-vista.png"
+  }
+
   return (
     <div className={cn("relative h-[600px] w-full bg-stone-100 rounded-lg overflow-hidden", className)}>
       <div className="grid grid-cols-1 lg:grid-cols-3 h-full">
@@ -42,6 +47,7 @@ export default function InteractiveMap({ activeDay, className }: InteractiveMapP
             src={dayData ? getLocationImage(dayData.to) : "/images/destinations/bc-alberta-route.png"}
             alt={dayData ? `${dayData.to} scenic view` : "BC to Alberta Route"}
             className="w-full h-full object-cover"
+            onError={handleImageError}
           />
           {dayData && (
             <div className="absolute bottom-0 left-0 right-0 bg-black/50 p-4 text-white">
@@ -84,14 +90,14 @@ export default function InteractiveMap({ activeDay, className }: InteractiveMapP
                 {dayHikes.map((hike, index) => (
                   <Card key={index} className="overflow-hidden">
                     <div className="h-24 overflow-hidden">
-                      <img
-                        src={hike.imageUrl || `/images/hikes/${hike.name.toLowerCase().replace(/\s+/g, "-")}.jpg`}
-                        alt={hike.name}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.src = "/images/destinations/mountain-valley-vista.png"
-                        }}
-                      />
+                      <div className="h-full w-full bg-stone-200">
+                        <img
+                          src={hike.imageUrl || `/images/hikes/${hike.name.toLowerCase().replace(/\s+/g, "-")}.jpg`}
+                          alt={hike.name}
+                          className="w-full h-full object-cover"
+                          onError={handleImageError}
+                        />
+                      </div>
                     </div>
                     <CardContent className="p-3">
                       <h5 className="font-medium text-sm">{hike.name}</h5>

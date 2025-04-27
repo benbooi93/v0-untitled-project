@@ -24,14 +24,13 @@ export default function ItineraryPage() {
             {tripData.map((day) => (
               <Card key={day.day} className="overflow-hidden">
                 <div className="relative h-40">
-                  <img
-                    src={`/images/destinations/${day.to.toLowerCase().replace(/\s+/g, "-")}.jpg`}
-                    alt={`Day ${day.day} - ${day.title}`}
-                    className="h-full w-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "/images/destinations/mountain-valley-vista.png"
-                    }}
-                  />
+                  <div className="h-full w-full bg-stone-200">
+                    <img
+                      src={`/images/destinations/${day.to.toLowerCase().replace(/\s+/g, "-")}.jpg`}
+                      alt={`Day ${day.day} - ${day.title}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-4">
                     <Badge className="mb-2 bg-emerald-600">Day {day.day}</Badge>
@@ -97,14 +96,13 @@ export default function ItineraryPage() {
             {tripData.map((day) => (
               <div key={day.day} className="border rounded-lg overflow-hidden">
                 <div className="relative h-64">
-                  <img
-                    src={`/images/destinations/${day.to.toLowerCase().replace(/\s+/g, "-")}.jpg`}
-                    alt={`Day ${day.day} - ${day.title}`}
-                    className="h-full w-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "/images/destinations/mountain-valley-vista.png"
-                    }}
-                  />
+                  <div className="h-full w-full bg-stone-200">
+                    <img
+                      src={`/images/destinations/${day.to.toLowerCase().replace(/\s+/g, "-")}.jpg`}
+                      alt={`Day ${day.day} - ${day.title}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-6">
                     <Badge className="mb-2 bg-emerald-600">Day {day.day}</Badge>
