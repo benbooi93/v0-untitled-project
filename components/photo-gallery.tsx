@@ -41,10 +41,13 @@ export default function PhotoGallery({ photos, className }: PhotoGalleryProps) {
       <div className="relative overflow-hidden rounded-lg bg-stone-100">
         <div className="aspect-[16/9] w-full">
           <img
-            src={photos[currentIndex].src || "/placeholder.svg"}
+            src={photos[currentIndex].src}
             alt={photos[currentIndex].alt}
             className="h-full w-full object-cover transition-transform duration-500 hover:scale-105 cursor-pointer"
             onClick={() => openLightbox(currentIndex)}
+            onError={(e) => {
+              e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            }}
           />
         </div>
         <button
@@ -85,7 +88,14 @@ export default function PhotoGallery({ photos, className }: PhotoGalleryProps) {
             )}
             onClick={() => setCurrentIndex(index)}
           >
-            <img src={photo.src || "/placeholder.svg"} alt={photo.alt} className="h-full w-full object-cover" />
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              className="h-full w-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              }}
+            />
           </div>
         ))}
       </div>
@@ -95,9 +105,12 @@ export default function PhotoGallery({ photos, className }: PhotoGalleryProps) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90" onClick={closeLightbox}>
           <div className="relative max-h-[90vh] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
             <img
-              src={photos[currentIndex].src || "/placeholder.svg"}
+              src={photos[currentIndex].src}
               alt={photos[currentIndex].alt}
               className="max-h-[90vh] max-w-[90vw] object-contain"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              }}
             />
             <button
               onClick={closeLightbox}

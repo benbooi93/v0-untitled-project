@@ -14,7 +14,7 @@ export default function BirthdayCelebrationHero() {
       <div className="relative h-[85vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60 z-10" />
         <img
-          src="/images/destinations/banff-lake-louise.png"
+          src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           alt={
             language === "en"
               ? "Scenic view of Lake Louise in Banff National Park"

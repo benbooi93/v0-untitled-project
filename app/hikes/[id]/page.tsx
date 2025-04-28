@@ -61,30 +61,31 @@ export default function HikeDetailPage() {
     { distance: 7, elevation: 1200, label: "End" },
   ]
 
-  // Mock photo gallery
+  // Mock photo gallery - Use actual image + fallbacks
   const photos = [
     {
-      src: hike.imageUrl || `/placeholder.svg?height=600&width=800&query=${hike.name} trail view 1`,
+      src: hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Actual hike image
       alt: `${hike.name} - Main view`,
       caption: `${hike.name} - Scenic viewpoint`,
     },
+    // Use the same image or related fallbacks for the rest of the gallery slots
     {
-      src: `/placeholder.svg?height=600&width=800&query=${hike.name} trail view 2`,
+      src: hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       alt: `${hike.name} - Trail path`,
       caption: "Trail path through the forest",
     },
     {
-      src: `/placeholder.svg?height=600&width=800&query=${hike.name} trail view 3`,
+      src: hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       alt: `${hike.name} - Mountain vista`,
       caption: "Mountain vista from the trail",
     },
     {
-      src: `/placeholder.svg?height=600&width=800&query=${hike.name} trail view 4`,
+      src: hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       alt: `${hike.name} - Wildlife`,
       caption: "Local wildlife spotted on the trail",
     },
     {
-      src: `/placeholder.svg?height=600&width=800&query=${hike.name} trail view 5`,
+      src: hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       alt: `${hike.name} - Trail marker`,
       caption: "Trail marker and signage",
     },
@@ -251,9 +252,12 @@ export default function HikeDetailPage() {
                     <div key={nearbyHike.id} className="flex items-center gap-3 p-2 hover:bg-stone-50 rounded-md">
                       <div className="h-10 w-10 rounded-md overflow-hidden">
                         <img
-                          src={nearbyHike.imageUrl || `/placeholder.svg?height=100&width=100&query=${nearbyHike.name}`}
+                          src={nearbyHike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
                           alt={nearbyHike.name}
                           className="h-full w-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+                          }}
                         />
                       </div>
                       <div>

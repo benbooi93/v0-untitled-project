@@ -53,29 +53,29 @@ export default function DayDetailPage() {
   // Mock photo gallery
   const photos = [
     {
-      src: `/placeholder.svg?height=600&width=800&query=Day ${dayData.day} ${dayData.title} scenic view 1`,
-      alt: `Day ${dayData.day} - Main view`,
-      caption: `${dayData.title} - Scenic view`,
+      src: "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: `Day ${dayData.day} ${dayData.title} scenic view 1`,
+      caption: `Day ${dayData.day} - ${dayData.title}`,
     },
     {
-      src: `/placeholder.svg?height=600&width=800&query=Day ${dayData.day} ${dayData.title} scenic view 2`,
-      alt: `Day ${dayData.day} - Secondary view`,
-      caption: `${dayData.from} to ${dayData.to} route`,
+      src: "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: `Day ${dayData.day} ${dayData.title} scenic view 2`,
+      caption: "Route scenery",
     },
     {
-      src: `/placeholder.svg?height=600&width=800&query=Day ${dayData.day} ${dayData.title} scenic view 3`,
-      alt: `Day ${dayData.day} - Tertiary view`,
-      caption: "Beautiful landscape along the route",
+      src: "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: `Day ${dayData.day} ${dayData.title} scenic view 3`,
+      caption: "Destination highlights",
     },
     {
-      src: `/placeholder.svg?height=600&width=800&query=Day ${dayData.day} ${dayData.title} scenic view 4`,
-      alt: `Day ${dayData.day} - Quaternary view`,
-      caption: "Roadside attractions",
+      src: "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: `Day ${dayData.day} ${dayData.title} scenic view 4`,
+      caption: "Nearby points of interest",
     },
     {
-      src: `/placeholder.svg?height=600&width=800&query=Day ${dayData.day} ${dayData.title} scenic view 5`,
-      alt: `Day ${dayData.day} - Quinary view`,
-      caption: "Local wildlife and nature",
+      src: "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      alt: `Day ${dayData.day} ${dayData.title} scenic view 5`,
+      caption: "Accommodation area",
     },
   ]
 
@@ -216,12 +216,12 @@ export default function DayDetailPage() {
                     <img
                       src={
                         dayData.accommodationType === "camping"
-                          ? "/juniper-beach-campsite.png"
+                          ? "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                           : dayData.accommodationType === "hotel"
-                            ? "/moxy-banff-hotel.png"
+                            ? "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                             : dayData.accommodationType === "family"
-                              ? "/kelowna-house.png"
-                              : `/placeholder.svg?height=300&width=500&query=${dayData.accommodation}`
+                              ? "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                              : "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                       }
                       alt={dayData.accommodation}
                       className="h-full w-full object-cover"

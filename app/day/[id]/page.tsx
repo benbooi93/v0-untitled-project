@@ -77,203 +77,152 @@ export default function DayDetailPage() {
 
   // Get location-specific images based on the destination
   const getLocationImages = (location) => {
+    const fallbackImage = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Mountain forest valley vista spring
+    const defaultPhotos = [
+      { src: fallbackImage, alt: `${location} - Scenic View`, caption: `Scenic views around ${location}` },
+      { src: fallbackImage, alt: `${location} - Valley View`, caption: `Valley views near ${location}` },
+      { src: fallbackImage, alt: `${location} - Highway View`, caption: `Highway views in ${location}` },
+      { src: fallbackImage, alt: `${location} - Mountain View`, caption: `Mountain views near ${location}` },
+      { src: fallbackImage, alt: `${location} - Landscape View`, caption: `Landscape views around ${location}` },
+    ];
+
+    if (!location) return defaultPhotos;
+
     if (location.includes("Banff")) {
       return [
         {
-          src: "/images/destinations/banff-lake-louise.png",
+          src: "https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Lake Louise Banff
           alt: `${location} - Lake Louise`,
           caption: `Beautiful views of Lake Louise in ${location}`,
         },
         {
-          src: "/images/hikes/johnston-canyon-trail.png",
+          src: "https://images.pexels.com/photos/15436379/pexels-photo-15436379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Johnston Canyon
           alt: `${location} - Johnston Canyon`,
           caption: `Johnston Canyon in ${location}`,
         },
         {
-          src: "/images/hikes/lake-agnes-tea-house.png",
+          src: "https://images.pexels.com/photos/10290066/pexels-photo-10290066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Lake Agnes Tea House
           alt: `${location} - Lake Agnes`,
           caption: `Lake Agnes Tea House in ${location}`,
         },
         {
-          src: "/images/hikes/bow-falls-viewpoint.png",
+          src: "https://images.pexels.com/photos/19554875/pexels-photo-19554875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Bow Falls
           alt: `${location} - Bow Falls`,
           caption: `Bow Falls in ${location}`,
         },
         {
-          src: "/images/hikes/sunshine-meadows.png",
+          src: "https://images.pexels.com/photos/31747370/pexels-photo-31747370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Sunshine Meadows
           alt: `${location} - Sunshine Meadows`,
           caption: `Sunshine Meadows in ${location}`,
         },
-      ]
+      ];
     } else if (location.includes("Kelowna")) {
       return [
         {
-          src: "/images/destinations/kelowna-lake.png",
+          src: "https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Okanagan Lake Kelowna
           alt: `${location} - Okanagan Lake`,
           caption: `Okanagan Lake in ${location}`,
         },
         {
-          src: "/images/hikes/knox-mountain-park.png",
+          src: "https://images.pexels.com/photos/16821531/pexels-photo-16821531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Knox Mountain
           alt: `${location} - Knox Mountain`,
           caption: `Knox Mountain in ${location}`,
         },
         {
-          src: "/images/accommodations/kelowna-house.png",
-          alt: `${location} - Residential Area`,
-          caption: `Residential area in ${location}`,
+          src: "https://images.pexels.com/photos/2339180/pexels-photo-2339180.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Kelowna Vineyard
+          alt: `${location} - Vineyard`,
+          caption: `Vineyards in ${location}`,
         },
         {
-          src: "/images/destinations/kelowna-lake.png",
+          src: "https://images.pexels.com/photos/16821531/pexels-photo-16821531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Gibraltar Rock/Paul Lake
+          alt: `${location} - Paul Lake`,
+          caption: `Paul Lake near ${location}`,
+        },
+        {
+          src: "https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Okanagan Lake Kelowna (repeat)
           alt: `${location} - Lake View`,
           caption: `Lake views in ${location}`,
         },
-        {
-          src: "/images/destinations/kelowna-lake.png",
-          alt: `${location} - Wine Country`,
-          caption: `Wine country around ${location}`,
-        },
-      ]
+      ];
     } else if (location.includes("Revelstoke")) {
       return [
         {
-          src: "/images/destinations/revelstoke-mountain.png",
+          src: "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Revelstoke Mountain
           alt: `${location} - Mountain View`,
           caption: `Mountain views in ${location}`,
         },
         {
-          src: "/images/hikes/inspiration-woods-trail.png",
+          src: "https://images.pexels.com/photos/5064661/pexels-photo-5064661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Inspiration Woods
           alt: `${location} - Inspiration Woods`,
           caption: `Inspiration Woods in ${location}`,
         },
         {
-          src: "/images/accommodations/revelstoke-airbnb.png",
-          alt: `${location} - Accommodation`,
-          caption: `Accommodation in ${location}`,
+          src: "https://images.pexels.com/photos/12699494/pexels-photo-12699494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Emerald Lake Loop (Yoho image)
+          alt: `${location} - Emerald Lake`,
+          caption: `Emerald Lake near ${location}`,
         },
         {
-          src: "/images/destinations/revelstoke-mountain.png",
+          src: "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Revelstoke Mountain (repeat)
           alt: `${location} - Scenic View`,
           caption: `Scenic views around ${location}`,
         },
         {
-          src: "/images/hikes/inspiration-woods-trail.png",
+          src: "https://images.pexels.com/photos/5064661/pexels-photo-5064661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Inspiration Woods (repeat)
           alt: `${location} - Forest Trail`,
           caption: `Forest trails near ${location}`,
         },
-      ]
+      ];
     } else if (location.includes("Vancouver")) {
+      // Using the same Vancouver skyline image for all variations
+      const vancouverImage = "https://images.pexels.com/photos/2100921/pexels-photo-2100921.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
       return [
-        {
-          src: "/images/destinations/vancouver-skyline.png",
-          alt: `${location} - Skyline`,
-          caption: `Skyline of ${location}`,
-        },
-        {
-          src: "/images/destinations/vancouver-skyline.png",
-          alt: `${location} - Downtown`,
-          caption: `Downtown ${location}`,
-        },
-        {
-          src: "/images/destinations/vancouver-skyline.png",
-          alt: `${location} - Harbor`,
-          caption: `Harbor view in ${location}`,
-        },
-        {
-          src: "/images/destinations/vancouver-skyline.png",
-          alt: `${location} - City View`,
-          caption: `City views of ${location}`,
-        },
-        {
-          src: "/images/destinations/vancouver-skyline.png",
-          alt: `${location} - Urban Landscape`,
-          caption: `Urban landscape of ${location}`,
-        },
-      ]
+        { src: vancouverImage, alt: `${location} - Skyline`, caption: `Skyline of ${location}` },
+        { src: vancouverImage, alt: `${location} - Downtown`, caption: `Downtown ${location}` },
+        { src: vancouverImage, alt: `${location} - Harbor`, caption: `Harbor view in ${location}` },
+        { src: vancouverImage, alt: `${location} - City View`, caption: `City views of ${location}` },
+        { src: vancouverImage, alt: `${location} - Urban Landscape`, caption: `Urban landscape of ${location}` },
+      ];
     } else if (location.includes("Juniper Beach")) {
+      const juniperImage = "https://images.pexels.com/photos/1415364/pexels-photo-1415364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Juniper Beach
       return [
         {
-          src: "/images/destinations/juniper-beach.png",
+          src: juniperImage,
           alt: `${location} - Beach View`,
           caption: `Beach views at ${location}`,
         },
         {
-          src: "/images/hikes/thompson-river-viewpoint-juniper-bluff-trail.png",
+          src: "https://images.pexels.com/photos/31766206/pexels-photo-31766206.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Thompson River Viewpoint/Juniper Bluff
           alt: `${location} - River View`,
           caption: `Thompson River views near ${location}`,
         },
         {
-          src: "/images/accommodations/juniper-beach-campsite.png",
-          alt: `${location} - Campsite`,
-          caption: `Campsite at ${location}`,
+          src: "https://images.pexels.com/photos/2416602/pexels-photo-2416602.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Thompson River
+          alt: `${location} - River Scenery`,
+          caption: `Thompson River scenery near ${location}`,
         },
         {
-          src: "/images/destinations/juniper-beach.png",
+          src: juniperImage,
           alt: `${location} - Scenic View`,
           caption: `Scenic views around ${location}`,
         },
         {
-          src: "/images/destinations/juniper-beach.png",
+          src: juniperImage,
           alt: `${location} - Trail View`,
           caption: `Trail views at ${location}`,
         },
-      ]
+      ];
     } else if (location.includes("Golden")) {
+      const goldenImage = "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Golden (Revelstoke image)
       return [
-        {
-          src: "/images/destinations/golden-trail.png",
-          alt: `${location} - Trail View`,
-          caption: `Trail views in ${location}`,
-        },
-        {
-          src: "/images/hikes/golden-rotary-trail.png",
-          alt: `${location} - Rotary Trail`,
-          caption: `Rotary Trail in ${location}`,
-        },
-        {
-          src: "/images/destinations/golden-trail.png",
-          alt: `${location} - River View`,
-          caption: `River views in ${location}`,
-        },
-        {
-          src: "/images/destinations/golden-trail.png",
-          alt: `${location} - Mountain View`,
-          caption: `Mountain views near ${location}`,
-        },
-        {
-          src: "/images/destinations/golden-trail.png",
-          alt: `${location} - Forest View`,
-          caption: `Forest views around ${location}`,
-        },
-      ]
+        { src: goldenImage, alt: `${location} - Trail View`, caption: `Trail views in ${location}` },
+        { src: goldenImage, alt: `${location} - Rotary Trail`, caption: `Rotary Trail in ${location}` },
+        { src: goldenImage, alt: `${location} - River View`, caption: `River views in ${location}` },
+        { src: goldenImage, alt: `${location} - Mountain View`, caption: `Mountain views near ${location}` },
+        { src: goldenImage, alt: `${location} - Forest View`, caption: `Forest views around ${location}` },
+      ];
     } else {
       // Default images for other locations
-      return [
-        {
-          src: "/images/destinations/rocky-mountain-highway.png",
-          alt: `${location} - Scenic View`,
-          caption: `Scenic views around ${location}`,
-        },
-        {
-          src: "/images/destinations/mountain-valley-vista.png",
-          alt: `${location} - Valley View`,
-          caption: `Valley views near ${location}`,
-        },
-        {
-          src: "/images/destinations/bc-alberta-route.png",
-          alt: `${location} - Highway View`,
-          caption: `Highway views in ${location}`,
-        },
-        {
-          src: "/images/destinations/rocky-mountain-highway.png",
-          alt: `${location} - Mountain View`,
-          caption: `Mountain views near ${location}`,
-        },
-        {
-          src: "/images/destinations/mountain-valley-vista.png",
-          alt: `${location} - Landscape View`,
-          caption: `Landscape views around ${location}`,
-        },
-      ]
+      return defaultPhotos;
     }
   }
 
@@ -283,27 +232,27 @@ export default function DayDetailPage() {
   // Route photos
   const routePhotos = [
     {
-      src: "/images/destinations/rocky-mountain-highway.png",
+      src: "https://images.pexels.com/photos/2331528/pexels-photo-2331528.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Rocky Mountain Highway
       alt: `Route from ${dayData.from} to ${dayData.to} - Highway View`,
       caption: `Highway between ${dayData.from} and ${dayData.to}`,
     },
     {
-      src: "/images/destinations/mountain-valley-vista.png",
+      src: "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Mountain valley vista spring
       alt: `Route from ${dayData.from} to ${dayData.to} - Mountain View`,
       caption: `Mountain views along the route`,
     },
     {
-      src: "/images/destinations/bc-alberta-route.png",
+      src: "https://images.pexels.com/photos/30480941/pexels-photo-30480941.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // BC-Alberta Route
       alt: `Route from ${dayData.from} to ${dayData.to} - Scenic View`,
       caption: `Scenic views along the route`,
     },
     {
-      src: "/images/hikes/emerald-lake-loop.png",
+      src: "https://images.pexels.com/photos/12699494/pexels-photo-12699494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Emerald Lake Loop (Yoho image)
       alt: `Route from ${dayData.from} to ${dayData.to} - Lake View`,
       caption: `Lakes you'll pass on your journey`,
     },
     {
-      src: "/images/hikes/thompson-river-viewpoint-juniper-bluff-trail.png",
+      src: "https://images.pexels.com/photos/31766206/pexels-photo-31766206.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Thompson River Viewpoint/Juniper Bluff
       alt: `Route from ${dayData.from} to ${dayData.to} - River View`,
       caption: `Rivers along the route`,
     },
@@ -315,58 +264,58 @@ export default function DayDetailPage() {
         {
           src:
             dayData.accommodationType === "camping"
-              ? "/images/accommodations/juniper-beach-campsite.png"
+              ? "https://images.pexels.com/photos/7245193/pexels-photo-7245193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" // Juniper Beach Campsite
               : dayData.accommodationType === "hotel"
-                ? "/images/accommodations/moxy-banff-hotel.png"
+                ? "https://images.pexels.com/photos/16151009/pexels-photo-16151009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" // Moxy Banff Hotel
                 : dayData.accommodationType === "family"
-                  ? "/images/accommodations/kelowna-house.png"
-                  : "/images/accommodations/revelstoke-airbnb.png",
+                  ? "https://images.pexels.com/photos/216117/pexels-photo-216117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" // Kelowna House
+                  : "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", // Revelstoke Airbnb (Revelstoke image)
           alt: `${dayData.accommodation} - Exterior`,
           caption: `${dayData.accommodation} - Exterior View`,
         },
         {
           src:
             dayData.accommodationType === "camping"
-              ? "/images/accommodations/juniper-beach-campsite.png"
+              ? "https://images.pexels.com/photos/7245193/pexels-photo-7245193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
               : dayData.accommodationType === "hotel"
-                ? "/images/accommodations/moxy-banff-hotel.png"
+                ? "https://images.pexels.com/photos/16151009/pexels-photo-16151009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 : dayData.accommodationType === "family"
-                  ? "/images/accommodations/kelowna-house.png"
-                  : "/images/accommodations/revelstoke-airbnb.png",
+                  ? "https://images.pexels.com/photos/216117/pexels-photo-216117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  : "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           alt: `${dayData.accommodation} - Another View`,
           caption: `${dayData.accommodation} - Another View`,
         },
         {
           src:
             dayData.accommodationType === "camping"
-              ? "/images/accommodations/juniper-beach-campsite.png"
+              ? "https://images.pexels.com/photos/7245193/pexels-photo-7245193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
               : dayData.accommodationType === "hotel"
-                ? "/images/accommodations/moxy-banff-hotel.png"
+                ? "https://images.pexels.com/photos/16151009/pexels-photo-16151009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 : dayData.accommodationType === "family"
-                  ? "/images/accommodations/kelowna-house.png"
-                  : "/images/accommodations/revelstoke-airbnb.png",
+                  ? "https://images.pexels.com/photos/216117/pexels-photo-216117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                  : "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           alt: `${dayData.accommodation} - Surroundings`,
           caption: `${dayData.accommodation} - Surroundings`,
         },
         {
           src: dayData.to.includes("Banff")
-            ? "/images/destinations/banff-lake-louise.png"
+            ? "https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             : dayData.to.includes("Kelowna")
-              ? "/images/destinations/kelowna-lake.png"
+              ? "https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
               : dayData.to.includes("Revelstoke")
-                ? "/images/destinations/revelstoke-mountain.png"
-                : "/images/destinations/juniper-beach.png",
+                ? "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                : "https://images.pexels.com/photos/1415364/pexels-photo-1415364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           alt: `${dayData.accommodation} - Area View`,
           caption: `${dayData.accommodation} - Area View`,
         },
         {
           src: dayData.to.includes("Banff")
-            ? "/images/hikes/johnston-canyon-trail.png"
+            ? "https://images.pexels.com/photos/10290066/pexels-photo-10290066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             : dayData.to.includes("Kelowna")
-              ? "/images/hikes/knox-mountain-park.png"
+              ? "https://images.pexels.com/photos/16821531/pexels-photo-16821531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
               : dayData.to.includes("Revelstoke")
-                ? "/images/hikes/inspiration-woods-trail.png"
-                : "/images/hikes/thompson-river-viewpoint-juniper-bluff-trail.png",
+                ? "https://images.pexels.com/photos/5064661/pexels-photo-5064661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                : "https://images.pexels.com/photos/31766206/pexels-photo-31766206.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           alt: `${dayData.accommodation} - Nearby Attractions`,
           caption: `${dayData.accommodation} - Nearby Attractions`,
         },
@@ -433,9 +382,12 @@ export default function DayDetailPage() {
       <div className="relative rounded-xl overflow-hidden mb-8">
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/20 z-10" />
         <img
-          src="/images/destinations/mountain-valley-vista.png"
+          src={getLocationImages(dayData.to)[0].src || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
           alt={`Day ${dayData.day} - ${dayData.title}`}
           className="w-full h-[40vh] object-cover"
+          onError={(e) => {
+            e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+          }}
         />
         <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-8">
           <Badge className="mb-2 w-fit bg-emerald-600">Day {dayData.day}</Badge>
@@ -496,9 +448,12 @@ export default function DayDetailPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-lg overflow-hidden">
                   <img
-                    src={getLocationImages(dayData.from)[0].src || "/placeholder.svg"}
+                    src={getLocationImages(dayData.from)[0].src || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
                     alt={`${dayData.from} - Starting Point`}
                     className="w-full h-48 object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+                    }}
                   />
                   <div className="bg-stone-50 p-2 text-center">
                     <p className="text-sm font-medium">{dayData.from}</p>
@@ -507,9 +462,12 @@ export default function DayDetailPage() {
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <img
-                    src={getLocationImages(dayData.to)[0].src || "/placeholder.svg"}
+                    src={getLocationImages(dayData.to)[0].src || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
                     alt={`${dayData.to} - Destination`}
                     className="w-full h-48 object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+                    }}
                   />
                   <div className="bg-stone-50 p-2 text-center">
                     <p className="text-sm font-medium">{dayData.to}</p>
@@ -596,9 +554,12 @@ export default function DayDetailPage() {
                   <Card key={index} className="overflow-hidden">
                     <div className="relative h-64">
                       <img
-                        src={hike.imageUrl || "/placeholder.svg"}
+                        src={hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
                         alt={hike.name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
                         <Badge
@@ -686,12 +647,12 @@ export default function DayDetailPage() {
                   <img
                     src={
                       dayData.to.includes("Banff")
-                        ? "/images/destinations/banff-lake-louise.png"
+                        ? "https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                         : dayData.to.includes("Kelowna")
-                          ? "/images/destinations/kelowna-lake.png"
+                          ? "https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                           : dayData.to.includes("Revelstoke")
-                            ? "/images/destinations/revelstoke-mountain.png"
-                            : "/images/destinations/juniper-beach.png"
+                            ? "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            : "https://images.pexels.com/photos/1415364/pexels-photo-1415364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     }
                     alt="Local dining options"
                     className="w-full h-40 object-cover"
@@ -718,12 +679,12 @@ export default function DayDetailPage() {
                   <img
                     src={
                       dayData.to.includes("Banff")
-                        ? "/images/hikes/lake-agnes-tea-house.png"
+                        ? "https://images.pexels.com/photos/10290066/pexels-photo-10290066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                         : dayData.to.includes("Kelowna")
-                          ? "/images/hikes/knox-mountain-park.png"
+                          ? "https://images.pexels.com/photos/16821531/pexels-photo-16821531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                           : dayData.to.includes("Revelstoke")
-                            ? "/images/hikes/inspiration-woods-trail.png"
-                            : "/images/hikes/thompson-river-viewpoint-juniper-bluff-trail.png"
+                            ? "https://images.pexels.com/photos/5064661/pexels-photo-5064661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            : "https://images.pexels.com/photos/31766206/pexels-photo-31766206.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     }
                     alt="Cultural attractions"
                     className="w-full h-40 object-cover"
@@ -770,12 +731,12 @@ export default function DayDetailPage() {
                   <img
                     src={
                       dayData.accommodationType === "camping"
-                        ? "/images/accommodations/juniper-beach-campsite.png"
+                        ? "https://images.pexels.com/photos/7245193/pexels-photo-7245193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                         : dayData.accommodationType === "hotel"
-                          ? "/images/accommodations/moxy-banff-hotel.png"
+                          ? "https://images.pexels.com/photos/16151009/pexels-photo-16151009.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                           : dayData.accommodationType === "family"
-                            ? "/images/accommodations/kelowna-house.png"
-                            : "/images/accommodations/revelstoke-airbnb.png"
+                            ? "https://images.pexels.com/photos/216117/pexels-photo-216117.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                            : "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     }
                     alt={dayData.accommodation}
                     className="w-full h-48 object-cover"

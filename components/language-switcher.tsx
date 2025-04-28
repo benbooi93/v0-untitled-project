@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
           <Globe className="h-4 w-4" />
           <div className="w-5 h-5 relative overflow-hidden rounded-sm">
             <Image
-              src={languages[language].flag || "/placeholder.svg"}
+              src={languages[language].flag || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
               alt={languages[language].name}
               width={20}
               height={20}
@@ -44,7 +44,7 @@ export default function LanguageSwitcher() {
             >
               <div className="w-5 h-5 relative overflow-hidden rounded-sm">
                 <Image
-                  src={lang.flag || "/placeholder.svg"}
+                  src={lang.flag || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
                   alt={lang.name}
                   width={20}
                   height={20}

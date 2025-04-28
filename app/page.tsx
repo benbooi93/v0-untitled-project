@@ -23,7 +23,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
         <div className="relative h-[70vh] overflow-hidden">
           <img
-            src="/images/destinations/banff-lake-louise.png"
+            src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="Scenic view of Lake Louise in Banff National Park"
             className="h-full w-full object-cover"
           />
@@ -100,7 +100,7 @@ export default function HomePage() {
             <div className="relative rounded-lg overflow-hidden border shadow-md">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               <img
-                src="/images/destinations/banff-lake-louise.png"
+                src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt={
                   language === "en"
                     ? "Scenic view of Lake Louise in Banff National Park"
@@ -138,7 +138,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="/images/hikes/johnston-canyon-trail.png"
+                    src="https://images.pexels.com/photos/15436379/pexels-photo-15436379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt={language === "en" ? "Hiking in Johnston Canyon" : "Caminata en Johnston Canyon"}
                     className="w-full h-full object-cover"
                   />
@@ -158,7 +158,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="/images/wildlife/grizzly-bear.jpg"
+                    src="https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt={
                       language === "en"
                         ? "Wildlife viewing opportunities"
@@ -182,7 +182,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="/images/destinations/kelowna-lake.png"
+                    src="https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt={language === "en" ? "Scenic destinations" : "Destinos panorámicos"}
                     className="w-full h-full object-cover"
                   />
@@ -202,7 +202,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="/images/birthday-celebration.png"
+                    src="https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                     alt={
                       language === "en" ? "Birthday celebration activities" : "Actividades de celebración de cumpleaños"
                     }
@@ -309,9 +309,12 @@ export default function HomePage() {
                   <Card key={hike.id} className="overflow-hidden">
                     <div className="relative h-48">
                       <img
-                        src={hike.imageUrl || `/placeholder.svg?height=300&width=500&query=hiking trail ${hike.name}`}
+                        src={hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
                         alt={language === "en" ? `${hike.name} hiking trail` : `Sendero de caminata ${hike.name}`}
                         className="h-full w-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-0 left-0 p-4">
@@ -370,28 +373,28 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="/images/destinations/banff-lake-louise.png"
+                src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt={language === "en" ? "Lake Louise, Banff" : "Lago Louise, Banff"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="/images/hikes/johnston-canyon-trail.png"
+                src="https://images.pexels.com/photos/15436379/pexels-photo-15436379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt={language === "en" ? "Johnston Canyon Trail" : "Sendero del Cañón Johnston"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="/images/destinations/kelowna-lake.png"
+                src="https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt={language === "en" ? "Okanagan Lake, Kelowna" : "Lago Okanagan, Kelowna"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="/images/destinations/revelstoke-mountain.png"
+                src="https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt={language === "en" ? "Revelstoke Mountain" : "Montaña Revelstoke"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />

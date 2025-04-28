@@ -20,20 +20,31 @@ export default function TripMap({ activeDay = 1 }) {
 
   // Get location-specific images based on the destination
   const getLocationImage = (location) => {
-    if (location?.includes("Banff")) {
-      return "/images/destinations/banff-lake-louise.png"
-    } else if (location?.includes("Kelowna")) {
-      return "/images/destinations/kelowna-lake.png"
-    } else if (location?.includes("Revelstoke")) {
-      return "/images/destinations/revelstoke-mountain.png"
-    } else if (location?.includes("Vancouver")) {
-      return "/images/destinations/vancouver-skyline.png"
-    } else if (location?.includes("Juniper Beach")) {
-      return "/images/destinations/juniper-beach.png"
-    } else if (location?.includes("Golden")) {
-      return "/images/destinations/golden-trail.png"
+    const defaultImage = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Mountain forest valley vista spring
+    if (!location) return defaultImage;
+
+    if (location.includes("Banff")) {
+      return "https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Lake Louise Banff
+    } else if (location.includes("Kelowna")) {
+      return "https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Okanagan Lake Kelowna
+    } else if (location.includes("Revelstoke")) {
+      return "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Revelstoke Mountain
+    } else if (location.includes("Vancouver")) {
+      return "https://images.pexels.com/photos/2100921/pexels-photo-2100921.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Vancouver skyline
+    } else if (location.includes("Juniper Beach")) {
+      return "https://images.pexels.com/photos/1415364/pexels-photo-1415364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Juniper Beach
+    } else if (location.includes("Golden")) {
+      return "https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Golden (using Revelstoke image)
+    } else if (location.includes("Lillooet")) {
+      return "https://images.pexels.com/photos/19648104/pexels-photo-19648104.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Lillooet
+    } else if (location.includes("Kamloops")) {
+      return "https://images.pexels.com/photos/11544932/pexels-photo-11544932.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Kamloops
+    } else if (location.includes("Pemberton")) {
+      return "https://images.pexels.com/photos/5926961/pexels-photo-5926961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Pemberton
+    } else if (location.includes("Yoho")) {
+      return "https://images.pexels.com/photos/12699494/pexels-photo-12699494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // Yoho
     } else {
-      return "/images/destinations/bc-alberta-route.png"
+      return "https://images.pexels.com/photos/30480941/pexels-photo-30480941.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"; // BC-Alberta Route
     }
   }
 
@@ -50,7 +61,7 @@ export default function TripMap({ activeDay = 1 }) {
         <div className="grid grid-cols-1 md:grid-cols-2 h-full">
           <div className="relative h-full">
             <img
-              src={dayData ? getLocationImage(dayData.to) : "/images/destinations/bc-alberta-route.png"}
+              src={dayData ? getLocationImage(dayData.to) : "https://images.pexels.com/photos/30480941/pexels-photo-30480941.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
               alt={dayData ? `${dayData.to} scenic view` : "BC to Alberta Route"}
               className="w-full h-full object-cover"
             />
@@ -66,7 +77,7 @@ export default function TripMap({ activeDay = 1 }) {
           <div className="flex flex-col h-full">
             <div className="relative h-1/2">
               <img
-                src={dayData ? getLocationImage(dayData.from) : "/images/destinations/rocky-mountain-highway.png"}
+                src={dayData ? getLocationImage(dayData.from) : "https://images.pexels.com/photos/2331528/pexels-photo-2331528.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
                 alt={dayData ? `${dayData.from} scenic view` : "Rocky Mountain Highway"}
                 className="w-full h-full object-cover"
               />
@@ -79,7 +90,7 @@ export default function TripMap({ activeDay = 1 }) {
             </div>
             <div className="relative h-1/2">
               <img
-                src="/images/destinations/mountain-valley-vista.png"
+                src="https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
                 alt="Mountain Valley Vista"
                 className="w-full h-full object-cover"
               />

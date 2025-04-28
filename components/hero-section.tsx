@@ -13,7 +13,7 @@ export default function HeroSection({ birthdayCelebration = false }) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
       <div className="relative h-[70vh] overflow-hidden">
         <img
-          src="/images/rocky-mountain-highway.png"
+          src="https://images.pexels.com/photos/2331528/pexels-photo-2331528.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           alt="Scenic road through the Canadian Rockies"
           className="h-full w-full object-cover"
         />

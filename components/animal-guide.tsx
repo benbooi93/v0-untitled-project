@@ -30,7 +30,7 @@ export default function AnimalGuide() {
       dangerLevelEs: "Alto",
       seasonalActivity: "Most active from spring to fall, hibernating in winter",
       seasonalActivityEs: "Más activos desde la primavera hasta el otoño, hibernando en invierno",
-      image: "/images/animals/grizzly-bear.jpg",
+      image: "https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       viewingTips: "Keep a safe distance (at least 100 meters), carry bear spray, make noise while hiking",
       viewingTipsEs:
         "Mantén una distancia segura (al menos 100 metros), lleva spray anti-osos, haz ruido mientras caminas",
@@ -66,7 +66,7 @@ export default function AnimalGuide() {
       dangerLevelEs: "Moderado",
       seasonalActivity: "Most active from spring to fall, hibernating in winter",
       seasonalActivityEs: "Más activos desde la primavera hasta el otoño, hibernando en invierno",
-      image: "/images/animals/black-bear.jpg",
+      image: "https://images.pexels.com/photos/31792203/pexels-photo-31792203.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       viewingTips: "Keep a safe distance (at least 100 meters), carry bear spray, make noise while hiking",
       viewingTipsEs:
         "Mantén una distancia segura (al menos 100 metros), lleva spray anti-osos, haz ruido mientras caminas",
@@ -101,7 +101,7 @@ export default function AnimalGuide() {
       dangerLevelEs: "Moderado a Alto",
       seasonalActivity: "Active year-round, most visible at dawn and dusk",
       seasonalActivityEs: "Activos todo el año, más visibles al amanecer y al atardecer",
-      image: "/images/animals/moose.jpg",
+      image: "https://images.pexels.com/photos/16765204/pexels-photo-16765204.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       viewingTips:
         "Keep a safe distance (at least 30 meters), be especially cautious during rutting season (fall) and calving season (spring)",
       viewingTipsEs:
@@ -136,7 +136,7 @@ export default function AnimalGuide() {
       dangerLevelEs: "Bajo",
       seasonalActivity: "Year-round resident, more visible during salmon runs",
       seasonalActivityEs: "Residente durante todo el año, más visible durante las migraciones de salmón",
-      image: "/images/animals/bald-eagle.jpg",
+      image: "https://images.pexels.com/photos/16492380/pexels-photo-16492380.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       viewingTips: "Look for them perched in tall trees near water bodies, especially in early morning",
       viewingTipsEs: "Búscalos posados en árboles altos cerca de cuerpos de agua, especialmente temprano en la mañana",
       conservationStatus: "Least Concern (recovered from endangered status)",
@@ -170,7 +170,7 @@ export default function AnimalGuide() {
       dangerLevelEs: "Ninguno",
       seasonalActivity: "Spawning runs typically occur in late summer and fall",
       seasonalActivityEs: "Las migraciones de desove típicamente ocurren a finales del verano y en otoño",
-      image: "/images/animals/salmon.jpg",
+      image: "https://images.pexels.com/photos/9949215/pexels-photo-9949215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       viewingTips:
         "Best viewed during spawning season when they return to rivers. The Adams River sockeye run (every four years) is spectacular.",
       viewingTipsEs:
@@ -227,7 +227,14 @@ export default function AnimalGuide() {
         {filteredAnimals.map((animal) => (
           <Card key={animal.id} className="overflow-hidden">
             <div className="h-48 overflow-hidden">
-              <img src={animal.image || "/placeholder.svg"} alt={animal.name} className="w-full h-full object-cover" />
+              <img
+                src={animal.image || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+                alt={animal.name}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+                }}
+              />
             </div>
             <CardHeader className="pb-2">
               <CardTitle>{language === "en" ? animal.name : animal.nameEs}</CardTitle>
