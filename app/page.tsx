@@ -12,63 +12,20 @@ import { tripData } from "@/lib/trip-data"
 import { hikesData } from "@/lib/hikes-data"
 import DailyGuidePreview from "@/components/daily-guide-preview"
 import TripHighlights from "@/components/trip-highlights"
+import BirthdayCelebrationHero from "@/components/birthday-celebration-hero"
 
 export default function HomePage() {
   const { t, language } = useLanguage()
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
-      <section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-10" />
-        <div className="relative h-[70vh] overflow-hidden">
-          <img
-            src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-            alt="Scenic view of Lake Louise in Banff National Park"
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <div className="container mx-auto px-4 text-center">
-            <div className="mx-auto max-w-3xl space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
-                {t("heroTitle")}
-              </h1>
-              <p className="text-xl text-white/90">{t("heroDate")}</p>
-
-              <div className="mt-4 bg-white/20 backdrop-blur-sm p-4 rounded-lg inline-flex items-center gap-4">
-                <div className="h-20 w-20 rounded-full overflow-hidden border-2 border-white">
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ig-profile-photo-320-x-320-photo-2025-04-27-09-50-32-jpg_custom_resized.jpg-UVPtPeWV0Npk434aKABeD5tosRP4Gh.jpeg"
-                    alt="Karla Carreño"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="text-left">
-                  <div className="flex items-center gap-2">
-                    <Cake className="h-5 w-5 text-pink-300" />
-                    <p className="text-white font-medium">{t("birthdayCelebration")}</p>
-                  </div>
-                  <p className="text-white text-xl font-bold">{t("birthdayPerson")}</p>
-                </div>
-              </div>
-
-              <div className="flex justify-center gap-4 pt-4">
-                <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700">
-                  <Link href="/itinerary">
-                    <CalendarIcon className="mr-2 h-5 w-5" />
-                    {t("viewItinerary")}
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Use the BirthdayCelebrationHero component which now includes Pexels image */}
+      <BirthdayCelebrationHero />
 
       <LanguageBanner />
 
       <main className="flex-1">
+        {/* Rest of the page content remains the same */}
         {/* Trip Overview Section */}
         <section className="container py-12 md:py-16">
           <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
@@ -100,7 +57,7 @@ export default function HomePage() {
             <div className="relative rounded-lg overflow-hidden border shadow-md">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               <img
-                src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="/images/destinations/banff-lake-louise.png"
                 alt={
                   language === "en"
                     ? "Scenic view of Lake Louise in Banff National Park"
@@ -138,7 +95,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="https://images.pexels.com/photos/15436379/pexels-photo-15436379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src="/images/hikes/johnston-canyon-trail.png"
                     alt={language === "en" ? "Hiking in Johnston Canyon" : "Caminata en Johnston Canyon"}
                     className="w-full h-full object-cover"
                   />
@@ -158,7 +115,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="https://images.pexels.com/photos/1068554/pexels-photo-1068554.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src="/images/wildlife/grizzly-bear.jpg"
                     alt={
                       language === "en"
                         ? "Wildlife viewing opportunities"
@@ -182,7 +139,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src="/images/destinations/kelowna-lake.png"
                     alt={language === "en" ? "Scenic destinations" : "Destinos panorámicos"}
                     className="w-full h-full object-cover"
                   />
@@ -202,7 +159,7 @@ export default function HomePage() {
               <Card className="overflow-hidden">
                 <div className="h-40 overflow-hidden">
                   <img
-                    src="https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                    src="/images/birthday-celebration.png"
                     alt={
                       language === "en" ? "Birthday celebration activities" : "Actividades de celebración de cumpleaños"
                     }
@@ -309,12 +266,9 @@ export default function HomePage() {
                   <Card key={hike.id} className="overflow-hidden">
                     <div className="relative h-48">
                       <img
-                        src={hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+                        src={hike.imageUrl || `/placeholder.svg?height=300&width=500&query=hiking trail ${hike.name}`}
                         alt={language === "en" ? `${hike.name} hiking trail` : `Sendero de caminata ${hike.name}`}
                         className="h-full w-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-0 left-0 p-4">
@@ -373,28 +327,28 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="/images/destinations/banff-lake-louise.png"
                 alt={language === "en" ? "Lake Louise, Banff" : "Lago Louise, Banff"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/15436379/pexels-photo-15436379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="/images/hikes/johnston-canyon-trail.png"
                 alt={language === "en" ? "Johnston Canyon Trail" : "Sendero del Cañón Johnston"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/15881307/pexels-photo-15881307.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="/images/destinations/kelowna-lake.png"
                 alt={language === "en" ? "Okanagan Lake, Kelowna" : "Lago Okanagan, Kelowna"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/216076/pexels-photo-216076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="/images/destinations/revelstoke-mountain.png"
                 alt={language === "en" ? "Revelstoke Mountain" : "Montaña Revelstoke"}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />

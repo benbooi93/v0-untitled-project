@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Benjamin & Karla's Vancouver → Banff Road-Trip Guide",
   description:
     "Interactive guide for Benjamin and Karla's nine-day road trip from Vancouver to Banff and back (May 3-11, 2025)",
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { CalendarIcon, Cake, MapPin } from "lucide-react"
 import { useLanguage } from "@/lib/i18n/language-context"
 import Link from "next/link"
+import PexelsHeroImage from "./pexels-hero-image"
 
 export default function BirthdayCelebrationHero() {
   const { t, language } = useLanguage()
@@ -13,14 +14,14 @@ export default function BirthdayCelebrationHero() {
       {/* Main background image */}
       <div className="relative h-[85vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60 z-10" />
-        <img
-          src="https://images.pexels.com/photos/1592461/pexels-photo-1592461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        <PexelsHeroImage
+          fallbackImage="/images/destinations/banff-lake-louise.png"
+          searchQuery="banff national park lake louise mountains scenic"
           alt={
             language === "en"
-              ? "Scenic view of Lake Louise in Banff National Park"
-              : "Vista panorámica del Lago Louise en el Parque Nacional Banff"
+              ? "Scenic view of mountains and lakes in Banff National Park"
+              : "Vista panorámica de montañas y lagos en el Parque Nacional Banff"
           }
-          className="h-full w-full object-cover"
         />
       </div>
 

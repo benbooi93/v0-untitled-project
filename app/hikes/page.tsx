@@ -56,12 +56,9 @@ function HikeCard({ hike }) {
     <Card className="overflow-hidden flex flex-col">
       <div className="relative h-48 overflow-hidden">
         <img
-          src={hike.imageUrl || "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"}
+          src={hike.imageUrl || `/placeholder.svg?height=300&width=500&query=hiking trail ${hike.name}`}
           alt={`${hike.name} hiking trail`}
           className="h-full w-full object-cover"
-          onError={(e) => {
-            e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-          }}
         />
         <div className="absolute top-2 right-2">
           <Badge className={hike.status === "confirmed" ? "bg-emerald-600" : "bg-amber-500"}>

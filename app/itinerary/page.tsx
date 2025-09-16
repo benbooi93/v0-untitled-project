@@ -26,12 +26,9 @@ export default function ItineraryPage() {
                 <div className="relative h-40">
                   <div className="h-full w-full bg-stone-200">
                     <img
-                      src={getLocationImage(day.to)}
+                      src={`/images/destinations/${day.to.toLowerCase().replace(/\s+/g, "-")}.jpg`}
                       alt={`Day ${day.day} - ${day.title}`}
                       className="h-full w-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                      }}
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -101,12 +98,9 @@ export default function ItineraryPage() {
                 <div className="relative h-64">
                   <div className="h-full w-full bg-stone-200">
                     <img
-                      src={getLocationImage(day.to)}
+                      src={`/images/destinations/${day.to.toLowerCase().replace(/\s+/g, "-")}.jpg`}
                       alt={`Day ${day.day} - ${day.title}`}
                       className="h-full w-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                      }}
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>

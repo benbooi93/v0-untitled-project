@@ -24,14 +24,11 @@ export default function LanguageBanner() {
               >
                 <div className="w-6 h-6 relative overflow-hidden rounded-sm">
                   <Image
-                    src={lang.flag}
+                    src={lang.flag || "/placeholder.svg"}
                     alt={lang.name}
                     width={24}
                     height={24}
                     className="object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.pexels.com/photos/7671863/pexels-photo-7671863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
-                    }}
                   />
                 </div>
                 <span>{lang.name}</span>

@@ -30,54 +30,19 @@ export default function MapPage() {
 
   const dayData = tripData.find((day) => day.day === Number.parseInt(activeDay))
 
-  // --- Map Static API Configuration ---
-  const GOOGLE_MAPS_API_KEY = "AIzaSyBslySK8ONRuisOJ53TVsuRpiVvXmTzVyE"; // <<<--- API key added
-  const mapWidth = 800;
-  const mapHeight = 400;
-  const routePath = "path=color:0x0000ff|weight:4|" +
-                    "Vancouver,BC|" +
-                    "Juniper Beach Provincial Park,BC|" +
-                    "Kamloops,BC|" +
-                    "Revelstoke,BC|" +
-                    "Golden,BC|" +
-                    "Banff,AB";
-  const markers = "markers=color:green|label:S|Vancouver,BC|" +
-                  "markers=color:red|label:E|Banff,AB|" +
-                  "markers=color:blue|size:tiny|Juniper Beach Provincial Park,BC|Kamloops,BC|Revelstoke,BC|Golden,BC";
-
-  const mapImageUrl = `https://maps.googleapis.com/maps/api/staticmap?size=${mapWidth}x${mapHeight}&maptype=roadmap&${routePath}&${markers}&key=${GOOGLE_MAPS_API_KEY}`;
-  // --- End Map Static API Configuration ---
-
   return (
     <main className="container py-8">
-      <h1 className="text-3xl font-bold mb-6">Trip Route & Map</h1>
+      <h1 className="text-3xl font-bold mb-6">Trip Explorer</h1>
 
-      {/* Static Map Image */}
-      <div className="mb-8 rounded-lg overflow-hidden border shadow-md">
-        {GOOGLE_MAPS_API_KEY === "YOUR_GOOGLE_MAPS_API_KEY" ? (
-          <div className="bg-yellow-100 p-4 text-center text-yellow-800">
-            Please replace "YOUR_GOOGLE_MAPS_API_KEY" in the code with your actual Google Maps API key to display the map.
-          </div>
-        ) : (
-          <img
-            src={mapImageUrl}
-            alt="Map showing the road trip route from Vancouver to Banff"
-            width={mapWidth}
-            height={mapHeight}
-            className="w-full"
-          />
-        )}
-      </div>
+      <Tabs defaultValue="destinations" value={activeTab} onValueChange={setActiveTab} className="w-full mb-6">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="destinations">Destinations & Routes</TabsTrigger>
+          <TabsTrigger value="wildlife">Wildlife Guide</TabsTrigger>
+        </TabsList>
+      </Tabs>
 
-      <div className="grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
-          <Tabs defaultValue="destinations" value={activeTab} onValueChange={setActiveTab} className="w-full mb-6">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="destinations">Destinations & Routes</TabsTrigger>
-              <TabsTrigger value="wildlife">Wildlife Guide</TabsTrigger>
-            </TabsList>
-          </Tabs>
-
+      <div className="grid lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2">
           {activeTab === "destinations" && isMounted && <TripMap activeDay={Number.parseInt(activeDay)} />}
 
           {activeTab === "wildlife" && <AnimalGuide />}
